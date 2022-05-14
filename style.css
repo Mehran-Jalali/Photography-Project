@@ -55,6 +55,7 @@ ul {
 }
 a {
   text-decoration: none;
+  color: black;
 }
 .flex {
   display: flex;
@@ -67,4 +68,59 @@ body {
 }
 h1 {
   font-family: "Vibes", sans-serif;
+}
+/* Nav Section */
+.main-head {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+nav {
+  width: 90%;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+#logo {
+  flex: 1 1 20rem;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  flex: 1 1 20rem;
+}
+.hero {
+  min-height: 90vh;
+  width: 95%;
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hero-introduction {
+  flex: 2 1 40rem;
+  text-align: center;
+}
+.hero-introduction p {
+  padding: 5rem 6rem;
+}
+.hero-introduction h2 {
+  padding-top: 2rem;
+}
+.hero-introduction a {
+  padding: 2rem 8rem;
+  border: 2px solid black;
+  margin-bottom: 4rem;
+}
+.hero-images {
+  flex: 1 1 40rem;
+  background: linear-gradient(#dad8dd, #dad1d4);
+}
+.hero-images img {
+  /* max-width: 55vw;
+  min-height: 85vh; */
+  width: 115%;
+  height: 100%;
+  object-fit: cover;
 }
