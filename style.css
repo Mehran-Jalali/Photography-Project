@@ -65,6 +65,7 @@ a {
 }
 body {
   font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out;
 }
 h1 {
   font-family: "Vibes", sans-serif;
@@ -72,6 +73,8 @@ h1 {
 /* Nav Section */
 .main-head {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
 }
 nav {
   width: 90%;
@@ -97,6 +100,7 @@ nav ul {
   margin: 0 0 0 auto;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 .hero-introduction {
   flex: 2 1 40rem;
@@ -104,6 +108,7 @@ nav ul {
 }
 .hero-introduction p {
   padding: 5rem 6rem;
+  z-index: 2;
 }
 .hero-introduction h2 {
   padding-top: 2rem;
@@ -115,7 +120,9 @@ nav ul {
 }
 .hero-images {
   flex: 1 1 40rem;
+  position: relative;
   background: linear-gradient(#dad8dd, #dad1d4);
+  z-index: +1;
 }
 .hero-images img {
   /* max-width: 55vw;
@@ -123,4 +130,48 @@ nav ul {
   width: 115%;
   height: 100%;
   object-fit: cover;
+}
+.plant {
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  object-fit: cover;
+  z-index: -1;
+  max-width: 55vw;
+  min-height: 85vh;
+  pointer-events: none;
+  transform: translate(0%, 20%) rotateZ(10deg) rotateX(-90deg);
+  animation: plantAnimation 1.5s ease 0.5s forwards,
+    plant-shake 2.5s infinite ease-in-out alternate-reverse 2s;
+  transform-origin: bottom;
+}
+.plant2 {
+  left: 40%;
+}
+
+/* Animations */
+@keyframes plant-shake {
+  from {
+    transform: translate(-12%, 10%) rotateZ(3deg) rotateX(10deg) rotateY(20deg);
+  }
+  to {
+    transform: translate(-12%, 10%) rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+  }
+}
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 20;
+  }
+}
+
+@keyframes plantAnimation {
+  from {
+    transform: translate(0%, 20%) rotateZ(10deg) rotateX(-90deg);
+  }
+  to {
+    transform: translate(-12%, 10%) rotateZ(0deg) rotateX(0deg);
+  }
 }
