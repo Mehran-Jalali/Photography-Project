@@ -109,6 +109,7 @@ nav ul {
 .hero-introduction p {
   padding: 5rem 6rem;
   z-index: 2;
+  color: var(--gray-text);
 }
 .hero-introduction h2 {
   padding-top: 2rem;
@@ -144,9 +145,10 @@ nav ul {
   animation: plantAnimation 1.5s ease 0.5s forwards,
     plant-shake 2.5s infinite ease-in-out alternate-reverse 2s;
   transform-origin: bottom;
+  max-height: 60%;
 }
 .plant2 {
-  left: 40%;
+  left: 50%;
 }
 
 /* Animations */
@@ -173,5 +175,217 @@ nav ul {
   }
   to {
     transform: translate(-12%, 10%) rotateZ(0deg) rotateX(0deg);
+  }
+}
+
+.burger,
+.menu-check {
+  display: none;
+}
+
+/* About Section */
+.about {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.about-text {
+  color: white;
+  background: var(--background-color);
+  flex: 1 1 40rem;
+  display: flex;
+  justify-content: space-around;
+  max-width: 100vw;
+  display: flex;
+}
+.about-text div {
+  padding: 2rem 7rem;
+}
+.about-text h3 {
+  padding: 1rem 0;
+  font-family: "Ruhl Medium";
+}
+.about-text h2 {
+  padding: 2rem 3rem;
+
+  font-family: "Vibes";
+  letter-spacing: 1rem;
+}
+.about-image {
+  flex: 2 1 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-image h5 {
+  position: absolute;
+  letter-spacing: 3rem;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gray-text);
+  text-shadow: 1px 0px 4px rgb(4, 68, 10);
+}
+/* Gallery Section */
+.gallery {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery1 {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+.gallery2 {
+  grid-column: 3/4;
+  grid-row: 1/3;
+  object-fit: cover;
+}
+.gallery3 {
+  grid-row: 2/3;
+}
+/* Media Query */
+@media screen and (max-width: 842px) {
+  .hero {
+    width: 100%;
+  }
+  nav {
+    height: 10vh;
+  }
+  .hero-introduction p {
+    padding: 5rem 3rem;
+  }
+  .burger {
+    position: relative;
+    display: block;
+  }
+  .burger span {
+    padding: 0.15rem 2rem;
+    margin: 0.5rem 1rem;
+    background: var(--gray-text);
+    display: block;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .nav-links {
+    background: var(--background-color);
+    width: 50%;
+    height: 50%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    border-radius: 1rem;
+    transition: transform 1.2s easeOutBounce;
+  }
+  .nav-links a {
+    color: white;
+    font-size: var(--header4);
+    position: relative;
+  }
+  .nav-links a:hover {
+    transition: ease-in-out 0.5s;
+    background-color: var(--gray-text);
+    border-radius: 10%;
+    padding: 0.5rem 0.5rem;
+  }
+  .hero-introduction {
+    z-index: 1;
+  }
+  .menu-check {
+    position: absolute;
+    top: 50%;
+    right: 7%;
+    transform: translate(10%, -50%);
+    width: 5rem;
+    height: 4rem;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 100;
+    display: block;
+  }
+  /* (+) in chechbox will only effect on the <first> codes belew it in HTML */
+  .menu-check:checked + .nav-links {
+    transform: translate(-100%);
+    animation: easeOutBounce 1.5s 0s alternate-reverse;
+    -webkit-animation: easeOutBounce 1.2s 0s alternate;
+  }
+  /* (~) in checkbox will effect on the <second> code below it */
+  .menu-check:checked ~ .burger span {
+    background: white;
+    transition: 1s;
+  }
+  .menu-check:checked ~ .burger span:nth-child(1) {
+    transform: rotateZ(-315deg) translateY(190%);
+  }
+  .menu-check:checked ~ .burger span:nth-child(3) {
+    transform: rotateZ(+315deg) translateY(-300%);
+  }
+  .menu-check:checked ~ .burger span:nth-child(2) {
+    display: none;
+  }
+  .menu-check:checked ~ .burger {
+    position: fixed;
+    right: 5%;
+  }
+  /* About Section */
+  .about-text div {
+    padding: 3rem 4rem;
+  }
+  /* Gallery Section */
+  .gallery img {
+    grid-row: auto;
+    grid-column: auto;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+}
+
+/* Just for fun */
+@-webkit-keyframes easeOutBounce {
+  0% {
+    width: 50px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  33% {
+    width: 250px;
+    -webkit-animation-timing-function: ease-out;
+  }
+  50% {
+    width: 210px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  66% {
+    width: 250px;
+    -webkit-animation-timing-function: ease-out;
+  }
+  82% {
+    width: 240px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  92% {
+    width: 250px;
+    -webkit-animation-timing-function: ease-out;
+  }
+  97% {
+    width: 245px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  100% {
+    width: 250px;
   }
 }
