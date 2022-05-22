@@ -29,6 +29,7 @@ html {
   --background-color: #414141;
   --gray-text: #525252;
   --special-color: #906272;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -88,6 +89,9 @@ nav {
 }
 #logo {
   flex: 1 1 20rem;
+  text-shadow: 2px 0px 2px var(--special-color);
+  letter-spacing: 0.3rem;
+  
 }
 nav ul {
   display: flex;
@@ -347,6 +351,9 @@ footer ul {
   .burger {
     position: relative;
     display: block;
+    cursor: pointer;
+    
+    
   }
   .burger span {
     padding: 0.15rem 2rem;
@@ -383,42 +390,37 @@ footer ul {
   .hero-introduction {
     z-index: 1;
   }
-  .menu-check {
-    position: absolute;
-    top: 50%;
-    right: 7%;
-    transform: translate(10%, -50%);
-    width: 5rem;
-    height: 4rem;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 100;
-    display: block;
-  }
+  
   /* (+) in chechbox will only effect on the <first> codes belew it in HTML */
-  .menu-check:checked + .nav-links {
+  .nav-open {
     transform: translate(-100%);
     animation: easeOutBounce 1.5s 0s alternate-reverse;
     -webkit-animation: easeOutBounce 1.2s 0s alternate;
   }
   /* (~) in checkbox will effect on the <second> code below it */
-  .menu-check:checked ~ .burger span {
+  .toggle .line1{
     background: white;
     transition: 1s;
-  }
-  .menu-check:checked ~ .burger span:nth-child(1) {
-    transform: rotateZ(-315deg) translateY(190%);
-  }
-  .menu-check:checked ~ .burger span:nth-child(3) {
-    transform: rotateZ(+315deg) translateY(-300%);
-  }
-  .menu-check:checked ~ .burger span:nth-child(2) {
-    display: none;
-  }
-  .menu-check:checked ~ .burger {
+    transform: rotateZ(-315deg) translateY(300%);
     position: fixed;
-    right: 5%;
+    top: 2rem;
+    right: 2rem;
   }
+  .toggle .line3{
+    transform: rotateZ(+315deg) translateY(-400%);
+    background: white;
+    transition: 1s;
+    position: fixed;
+    top: 3.5rem;
+    right: 1.6rem;
+  }
+  .toggle .line2{
+    opacity: 0;
+    position: fixed;
+    top: 3.5rem;
+    right: 1.6rem;
+  }
+  
   /* About Section */
   .about-text div {
     padding: 3rem 4rem;
